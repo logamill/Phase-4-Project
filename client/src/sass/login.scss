@@ -1,0 +1,86 @@
+.login {
+  height: 95vh;
+}
+
+.form {
+  width: 35rem;
+  margin: 010rem auto;
+  height: 95vh;
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+  &__input {
+    font-size: 1.5rem;
+    font-family: inherit;
+    color: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.5);
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 90%;
+    display: block;
+    transition: all 0.3s;
+    border-bottom: 3px solid $color-black;
+
+    &::-webkit-input-placeholder {
+      color: $color-black;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+      border-bottom: 3px solid $color-black;
+
+      &:invalid {
+        border-bottom: 3px solid $color-red;
+      }
+    }
+  }
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+    display: block;
+    transition: all 0.3s;
+  }
+
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+
+  &__radio-group {
+    width: 49%;
+    display: inline-block;
+  }
+  &__radio-input {
+    display: none;
+  }
+
+  &__btn-text {
+    font-size: 1.6rem;
+    color: $color-black;
+    background-color: transparent;
+    border: none;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-black;
+    padding: 3px;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: $color-black;
+      color: $color-white;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+      transform: translateY(0);
+    }
+  }
+}

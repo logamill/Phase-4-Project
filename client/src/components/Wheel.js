@@ -6,7 +6,7 @@ export default class Wheel extends Component {
     console.log(props);
     super(props);
     this.state = {
-      radius: 350,
+      radius: 370,
       cards: [],
       theta: 0.0,
     };
@@ -22,7 +22,7 @@ export default class Wheel extends Component {
 
     let new_cards = [];
 
-    for (let i = 0; i < 49; i++) {
+    for (let i = 0; i < 50; i++) {
       new_cards.push(
         <Card
           pic={`http://picsum.photos/${(i + 1) * 100}/200`}
@@ -39,10 +39,11 @@ export default class Wheel extends Component {
 
   handleScroll = (event) => {
     clearTimeout(this.anim_id);
-    this.wheel.style.transformStyle = 'preserve-3d'
+    this.wheel.style.transformStyle = "preserve-3d";
     this.temp_theta += event.deltaY;
-    this.wheel.style.transform = `translate(-50%, -50%) rotateX(65deg)
-    rotate(${this.temp_theta * 0.08}deg) `;
+    (this.wheel.style.transformStyle = `preserve-3d`),
+      (this.wheel.style.transform = `translate(-50%, -50%)  rotateX(65deg)
+    rotate(${this.temp_theta * 0.08}deg) `);
     this.anim_id = setTimeout(() => {
       this.setState({ theta: this.temp_theta });
     }, 150);
@@ -58,7 +59,7 @@ export default class Wheel extends Component {
         >
           {this.state.cards}
         </div>
-        <h2 className="explore" >Explore.</h2>
+        <h2 className="explore">Explore.</h2>
       </>
     );
   }
@@ -70,7 +71,7 @@ const styles = {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%) rotateX(65deg)",
-    height: "500px",
-    width: "500px",
+    height: "700px",
+    width: "700px",
   },
 };

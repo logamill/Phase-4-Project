@@ -4,10 +4,6 @@ class User < ApplicationRecord
     has_many :reviews, through: :posts
 
     validates :username, presence: true, uniqueness: true
-    
-    #  Additional email scrutiny - not using with seed data for Faker 
-    
-    # validate :permitted_emails
     # validates :email, format: /\w+@\w\.{1}[a-zA-Z]{2,}/, presence: true, uniqueness: true
 
     # def permitted_emails

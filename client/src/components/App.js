@@ -1,5 +1,7 @@
 import Wheel from "./Wheel";
 import PersonalPage from "./PersonalPage";
+import HomePage from "./HomePage";
+import Login from "./Login";
 import Navigation from "./Navigation";
 import CustomCursor from "./CustomCursor/CustomCursor";
 import "../sass/main.scss";
@@ -13,9 +15,15 @@ function App() {
       <Navigation />
       <Switch>
         <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route exact path="/login">
+          <Login />
+        </Route>
+        <Route exact path="/projects">
           <Wheel />
         </Route>
-        <Route exact path="/home">
+        <Route exact path="/user">
           <PersonalPage />
         </Route>
       </Switch>

@@ -9,18 +9,27 @@ function get_my_coords(theta, radius) {
 
 export default function Card(props) {
   let new_coords = get_my_coords(props.theta, props.radius);
-  console.log(props.id);
+
+  const handleMouseOver = (e) => {
+    console.log();
+  };
+  const handleMouseLeave = (e) => {
+    console.log(e.target);
+  };
+
   return (
     <div
+      onMouseEnter={handleMouseOver}
+      onMouseLeave={handleMouseLeave}
       className="card"
       style={{
         // ...styles.card,
+
         left: `${props.center.x + new_coords.x}px`,
         top: `${props.center.y - new_coords.y}px`,
         zIndex: `${props.id}`,
         transformStyle: `preserve-3d`,
         transform: `translate(-50%, -50%) rotateX(${props.center.y}rad) rotateY(${props.theta}rad)`,
-        // transform: ` translate(-50%, -50%) rotateY(65deg)`,
       }}
     >
       <img className="image" src={props.pic} alt="art work image" />
