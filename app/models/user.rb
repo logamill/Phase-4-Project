@@ -7,7 +7,7 @@ class User < ApplicationRecord
     validates :email, format: /\w+@\w\.{1}[a-zA-Z]{2,}/, presence: true, uniqueness: true
 
     def permitted_emails
-        unless email.match?(/gmail.com|yahoo.com|icloud.com/)
+        unless email.match?(/gmail.com|yahoo.com|mail.com/)
             errors.add(:permitted_emails, "Sorry, that email isn't permitted.")
         end
     end 
