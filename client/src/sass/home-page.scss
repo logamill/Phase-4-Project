@@ -1,0 +1,21 @@
+.home-page {
+  position: relative;
+  height: 95vh;
+
+  &__title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 9rem;
+  }
+
+  &__add-btn {
+    position: relative;
+    top: 95%;
+    margin-right: 3rem;
+    color: $color-black;
+    text-decoration: none;
+  }
+}
