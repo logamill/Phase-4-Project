@@ -18,6 +18,8 @@ export default function Card(props) {
         left: `${props.center.x + new_coords.x}px`,
         top: `${props.center.y - new_coords.y}px`,
         zIndex: `${props.id}`,
+        transformStyle: `preserve-3d`,
+        transform: `translate(-50%, -50%) rotateX(${props.center.y}rad) rotateY(${props.theta}rad)`,
         // transform: ` translate(-50%, -50%) rotateY(65deg)`,
       }}
     >

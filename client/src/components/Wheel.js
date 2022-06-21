@@ -39,8 +39,9 @@ export default class Wheel extends Component {
 
   handleScroll = (event) => {
     clearTimeout(this.anim_id);
+    this.wheel.style.transformStyle = 'preserve-3d'
     this.temp_theta += event.deltaY;
-    this.wheel.style.transform = `translate(-50%, -50%)  rotateX(65deg)
+    this.wheel.style.transform = `translate(-50%, -50%) rotateX(65deg)
     rotate(${this.temp_theta * 0.08}deg) `;
     this.anim_id = setTimeout(() => {
       this.setState({ theta: this.temp_theta });
@@ -57,7 +58,7 @@ export default class Wheel extends Component {
         >
           {this.state.cards}
         </div>
-        <h2 className="explore">Explore.</h2>
+        <h2 className="explore" >Explore.</h2>
       </>
     );
   }
