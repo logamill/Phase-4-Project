@@ -1,0 +1,33 @@
+.personal-page {
+  height: 90vh;
+  display: flex;
+  justify-content: space-between;
+}
+.each-project {
+  width: 66rem;
+  height: 40rem;
+}
+.project-info {
+  display: flex;
+  justify-content: space-evenly;
+}
+.row {
+  width: 50%;
+  text-align: left;
+  font-size: 1.6rem;
+}
+.user-name {
+  font-size: 4rem;
+  font-weight: 600;
+}
+.personal-info {
+  position: relative;
+}
+.add-btn {
+  position: absolute;
+  bottom: 0;
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 500;
+  border-bottom: 1.5px solid $color-black;
+}
