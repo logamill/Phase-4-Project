@@ -23,7 +23,6 @@ function App() {
   const onLogin = (userInfo) => {
     setUser(userInfo);
   };
-  console.log(user);
 
   return (
     <div className="App">
