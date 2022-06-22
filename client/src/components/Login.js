@@ -12,8 +12,6 @@ export default function Login({ onLogin }) {
       body: form,
     });
 
-    let response = await req.json();
-
     if (req.ok) {
       let user = await req.json();
       history.push(`/me`);
