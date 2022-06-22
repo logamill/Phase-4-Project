@@ -2,7 +2,8 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 export default function Login({ onLogin }) {
-  const history = useHistory();
+  let history = useHistory(); 
+
   const handleLogin = async (e) => {
     e.preventDefault();
     let form = new FormData(document.querySelector(`#signup-form`));
