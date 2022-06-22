@@ -7,19 +7,17 @@ export default function Login({ onLogin }) {
   const handleLogin = async (e) => {
     e.preventDefault();
     let form = new FormData(document.querySelector(`#signup-form`));
-    let req = await fetch(`/login`, {
+    let response = await fetch(`/login`, {
       method: `POST`,
       body: form,
     });
 
-    let response = await req.json();
-
-    if (req.ok) {
-      let user = await req.json();
+    if (response.ok) {
+      let user = await response.json();
       history.push(`/me`);
       onLogin(user);
     } else {
-      console.log(response);
+      response.json().then((err) => console.log(err.errors));
     }
   };
 

@@ -1,6 +1,19 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import NewPostForm from "./NewPostForm";
+import { useHistory } from "react-router-dom";
 
-export default function PersonalPage() {
+export default function PersonalPage({ user }) {
+  const [posts, setPosts] = useState([]);
+  console.log(user);
+
+  function handleAddPost(newPost) {
+    setPosts((posts) => [...posts, newPost]);
+  }
+
+  // function handleClick() {
+  //   history.push("/new");
+  // }
+
   return (
     <div className="personal-page">
       <div className="personal-info">
@@ -23,6 +36,8 @@ export default function PersonalPage() {
           <h5>Description: </h5>
         </div>
       </div>
+
+      <NewPostForm onAddPost={handleAddPost} user={user} />
     </div>
   );
 }
