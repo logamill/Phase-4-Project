@@ -28,7 +28,7 @@ export default function Login({ onLogin }) {
           <input
             type="text"
             className="form__input"
-            placeholder="Full Name"
+            placeholder="Username"
             required
             id="name"
             name="username"
