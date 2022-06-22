@@ -1,6 +1,17 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
-export default function Navigation() {
+export default function Navigation({ user, setUser }) {
+  const history = useHistory();
+  function handleLogoutClick() {
+    fetch("/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        setUser(null);
+        history.push(`/`);
+      }
+    });
+  }
+
   return (
     <div className="Navigation">
       <div class="navigation">
@@ -28,7 +39,7 @@ export default function Navigation() {
               </a>
             </li>
             <li class="navigation__item">
-              <a href="#" class="navigation__link">
+              <a href="#" onClick={handleLogoutClick} class="navigation__link">
                 Log out.
               </a>
             </li>

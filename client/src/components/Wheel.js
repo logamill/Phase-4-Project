@@ -9,19 +9,28 @@ export default class Wheel extends Component {
       radius: 370,
       cards: [],
       theta: 0.0,
+      all_data: [],
     };
     this.temp_theta = 0.0;
     this.anim_id = null;
   }
 
   componentDidMount() {
+    fetch(`/posts`)
+      .then((r) => r.json())
+      .then((data) => {
+        console.log(data);
+        this.setState({ all_data: data });
+      });
+
     let center_of_wheel = {
       x: parseFloat(this.wheel.style.width) / 2.0,
       y: parseFloat(this.wheel.style.height) / 2.0,
     };
 
     let new_cards = [];
-
+    console.log(this.state);
+    console.log(this.state.all_data);
     for (let i = 0; i < 50; i++) {
       new_cards.push(
         <Card

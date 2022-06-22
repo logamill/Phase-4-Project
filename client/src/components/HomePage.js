@@ -10,7 +10,7 @@ export default function HomePage() {
       </a>
 
       <a href="/signup" className="home-page__add-btn add-btn">
-        Sign up{" "}
+        Sign up
       </a>
     </div>
   );

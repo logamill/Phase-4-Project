@@ -1,7 +1,9 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
-export default function Login() {
-  const handleSignup = async (e) => {
+export default function Login({ onLogin }) {
+  const history = useHistory();
+  const handleLogin = async (e) => {
     e.preventDefault();
     let form = new FormData(document.querySelector(`#signup-form`));
     let req = await fetch(`/login`, {
@@ -9,12 +11,13 @@ export default function Login() {
       body: form,
     });
     let user = await req.json();
-    console.log(user);
+    onLogin(user);
+    history.push(`/me`);
   };
 
   return (
     <div className="login">
-      <form className="form" id="signup-form" onSubmit={handleSignup}>
+      <form className="form" id="signup-form" onSubmit={handleLogin}>
         <div className="form__group">
           <input
             type="text"
