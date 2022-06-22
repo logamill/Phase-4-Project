@@ -17,7 +17,7 @@ const CustomCursor = () => {
 
     return (
         <div>
-            <div className='secondary_cursor'></div>
+            <div className='primary_cursor'></div>
         </div>
     )
 }

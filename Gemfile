@@ -27,9 +27,6 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# Bcrypt gem for authentication and password security 
-gem 'bcrypt'
-
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -50,7 +47,7 @@ gem 'active_model_serializers'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

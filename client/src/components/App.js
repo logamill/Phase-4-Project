@@ -1,6 +1,8 @@
 import Wheel from "./Wheel";
+import NewWheel from "./NewWheel"
 import PersonalPage from "./PersonalPage";
 import HomePage from "./HomePage";
+import React, {useState, useEffect} from 'react';
 import Login from "./Login";
 import Navigation from "./Navigation";
 import CustomCursor from "./CustomCursor/CustomCursor";
@@ -21,7 +23,7 @@ function App() {
           <Login />
         </Route>
         <Route exact path="/projects">
-          <Wheel />
+          <Wheel/>
         </Route>
         <Route exact path="/user">
           <PersonalPage />
