@@ -11,16 +11,10 @@ export default function Card(props) {
   let new_coords = get_my_coords(props.theta, props.radius);
 
   const handleMouseOver = (e) => {
-    e.target.closest("div.card").style = {
-      // position: "absolute",
-      // left: `50%`,
-      // top: `50%`,
-      // zIndex: `9000`,
-      // transform: `translate(-50%, -50%) scale(2)`,
-    };
+    e.target.closest("div.card").style.transform = "scale(2)";
   };
   const handleMouseLeave = (e) => {
-    console.log(e.target.closest("div.card"));
+    e.target.closest("div.card").style.transform = "scale(1) ";
   };
 
   return (

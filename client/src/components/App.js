@@ -41,7 +41,7 @@ function App() {
           <Signup onLogin={onLogin} />
         </Route>
         <Route exact path="/projects">
-          <Wheel/>
+          <Wheel />
         </Route>
         <Route exact path="/me">
           <PersonalPage user={user} />
