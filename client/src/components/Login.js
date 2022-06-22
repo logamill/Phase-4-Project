@@ -2,8 +2,8 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 export default function Login({ onLogin }) {
-  let history = useHistory(); 
-
+  const history = useHistory();
+  // const [errors, setErrors] = useState([]);
   const handleLogin = async (e) => {
     e.preventDefault();
     let form = new FormData(document.querySelector(`#signup-form`));
@@ -11,9 +11,16 @@ export default function Login({ onLogin }) {
       method: `POST`,
       body: form,
     });
-    let user = await req.json();
-    onLogin(user);
-    history.push(`/me`);
+
+    let response = await req.json();
+
+    if (req.ok) {
+      let user = await req.json();
+      history.push(`/me`);
+      onLogin(user);
+    } else {
+      console.log(response);
+    }
   };
 
   return (

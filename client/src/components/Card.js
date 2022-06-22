@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory} from 'react-router-dom'
 
 function get_my_coords(theta, radius) {
   return {
@@ -10,17 +11,23 @@ function get_my_coords(theta, radius) {
 export default function Card(props) {
   let new_coords = get_my_coords(props.theta, props.radius);
 
-  const handleMouseOver = (e) => {
-    e.target.closest("div.card").style.transform = "scale(2)";
-  };
-  const handleMouseLeave = (e) => {
-    e.target.closest("div.card").style.transform = "scale(1) ";
-  };
+  const history = useHistory();
+  // console.log(props.post)
+  // const handleMouseOver = (e) => {
+  //   console.log();
+  // };
+  // const handleMouseLeave = (e) => {
+  //   console.log(e.target);
+  // };
+  function handleMouseClick(e) {
+    history.push(`/projects/${props.id}`)
+  }
 
   return (
     <div
-      onMouseEnter={handleMouseOver}
-      onMouseLeave={handleMouseLeave}
+      // onMouseEnter={handleMouseOver}
+      // onMouseLeave={handleMouseLeave}
+      onClick={handleMouseClick}
       className="card"
       style={{
         // ...styles.card,
