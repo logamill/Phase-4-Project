@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import Wheel from "./Wheel";
-import NewWheel from "./NewWheel"
 import PersonalPage from "./PersonalPage";
 import HomePage from "./HomePage";
-import React, {useState, useEffect} from 'react';
 import Login from "./Login";
 import Signup from "./Signup";
 import Navigation from "./Navigation";
