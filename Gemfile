@@ -27,9 +27,6 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# Bcrypt gem for authentication and password security 
-gem 'bcrypt'
-
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

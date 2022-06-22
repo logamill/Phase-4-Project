@@ -7,8 +7,7 @@
 }
 
 html {
-  font-size: 62.5%;
-  //defines what 1rem is
+  font-size: 62.5%; //defines what 1rem is
 }
 
 body {
@@ -17,19 +16,21 @@ body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   line-height: 1.7;
-  color: black;
+  color: $color-black;
   padding: 3rem;
   cursor: none;
 }
-
-.main-cursor,
-.secondary-cursor {
-  z-index: 10000;
-
+.secondary_cursor {
+  width: 5rem;
+  height: 5rem;
+  border: 2px dotted black;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
   pointer-events: none;
-  // overflow: hidden;
-  transform: translate3d(0, 0, 0);
-  position: fixed;
+  z-index: 150;
+  transition: all .1s linear;
+
 }
 
 .main-cursor {

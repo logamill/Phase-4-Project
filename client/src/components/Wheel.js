@@ -3,47 +3,30 @@ import Card from "./Card";
 
 export default class Wheel extends Component {
   constructor(props) {
-    console.log(props);
     super(props);
     this.state = {
+      center_of_wheel: {
+        x: 0,
+        y: 0,
+      },
       radius: 370,
       cards: [],
       theta: 0.0,
-      all_data: [],
+      posts: [],
     };
     this.temp_theta = 0.0;
     this.anim_id = null;
   }
 
   componentDidMount() {
-    fetch(`/posts`)
-      .then((r) => r.json())
-      .then((data) => {
-        console.log(data);
-        this.setState({ all_data: data });
-      });
+    fetch('/posts')
+    .then(res => res.json())
+    .then(data => this.setState({posts: data}))
 
-    let center_of_wheel = {
+    this.setState ({ center_of_wheel: {
       x: parseFloat(this.wheel.style.width) / 2.0,
       y: parseFloat(this.wheel.style.height) / 2.0,
-    };
-
-    let new_cards = [];
-    console.log(this.state);
-    console.log(this.state.all_data);
-    for (let i = 0; i < 50; i++) {
-      new_cards.push(
-        <Card
-          pic={`http://picsum.photos/${(i + 1) * 100}/200`}
-          radius={this.state.radius}
-          theta={(Math.PI / 25.0) * i}
-          center={center_of_wheel}
-          key={`card_${i}`}
-          id={i}
-        />
-      );
-    }
-    this.setState({ cards: new_cards });
+  }})
   }
 
   handleScroll = (event) => {
@@ -59,6 +42,8 @@ export default class Wheel extends Component {
   };
 
   render() {
+ 
+    console.log(this.state.posts)
     return (
       <>
         <div
@@ -66,7 +51,19 @@ export default class Wheel extends Component {
           ref={(ref_id) => (this.wheel = ref_id)}
           style={styles.wheel}
         >
-          {this.state.cards}
+          {
+            this.state.posts.map((post) => {
+              return (
+                <Card
+                  pic={post.image}
+                  radius={this.state.radius}
+                  theta={(Math.PI / 25.0) * post.id}
+                  center={this.state.center_of_wheel}
+                  key={`card_${post.id}`}
+                  id={post.id}
+              />
+            )})
+          }
         </div>
         <h2 className="explore">Explore.</h2>
       </>
