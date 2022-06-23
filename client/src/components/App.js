@@ -45,7 +45,7 @@ function App() {
           <Wheel />
         </Route>
         <Route exact path="/projects/:id">
-          <Project />
+          <Project user={user}/>
         </Route>
 
         <Route exact path="/me">

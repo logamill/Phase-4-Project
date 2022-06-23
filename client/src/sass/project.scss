@@ -4,14 +4,14 @@
     align-items: center;
 }
 
-.project-info {
+.this-project-info {
     flex-direction: column;
     justify-content: flex-start;
     padding: 3rem;
     align-items: left; 
     font-style: italic;
 }
-
+ 
 .project-info-row {
     margin-left: 1rem;
     font-style: italic;
@@ -28,6 +28,16 @@
     font-weight: 500;
     border-bottom: 1.5px solid;
     margin-bottom: 2rem;
+}
+
+.image-div {
+    width: 50vw;
+    height: 50vh;
+}
+
+.project-image {
+    height: 50vh;
+    margin-right: 2rem;
 }
 
 .review-container {
