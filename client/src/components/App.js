@@ -13,13 +13,13 @@ import { Route, Link, Switch, useHistory } from "react-router-dom";
 function App() {
   const [user, setUser] = useState(null);
 
-  // useEffect(() => {
-  //   fetch("/me").then((r) => {
-  //     if (r.ok) {
-  //       r.json().then((user) => setUser(user));
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
 
   const onLogin = (userInfo) => {
     setUser(userInfo);
@@ -44,7 +44,7 @@ function App() {
           <Wheel />
         </Route>
         <Route exact path="/projects/:id">
-          <Project />
+          <Project user={user}/>
         </Route>
         <Route exact path="/me">
           <PersonalPage user={user} />

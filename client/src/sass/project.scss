@@ -1,0 +1,67 @@
+.project-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.project-info {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 3rem;
+    align-items: left; 
+    font-style: italic;
+}
+
+.project-info-row {
+    margin-left: 1rem;
+    font-style: italic;
+    width: 100%;
+    text-align: left;
+    font-size: 1.4rem;
+}
+
+.reviews-header{
+    position: relative;
+    bottom: 0;
+    display: inline-block;
+    font-size: 3rem;
+    font-weight: 500;
+    border-bottom: 1.5px solid;
+    margin-bottom: 2rem;
+}
+
+.review-container {
+    padding: 1rem;
+}
+
+.add-review {
+    position: relative;
+    bottom: 0;
+    display: inline-block;
+    font-size: 19px;
+    font-weight: 500;
+    border-bottom: 1.5px solid;
+
+    &:hover {
+        transform: scale(1.2);
+        overflow: hidden;
+        opacity: 1;
+      }
+}
+
+.project-sep {
+    display: inline-block;
+    width: 48%;
+}
+
+.edit-delete {
+    display: inline-block;
+    margin-left: 2rem;
+    border-bottom: 1px solid;
+
+    &:hover {
+        transform: scale(1.2);
+    }
+}
+
+

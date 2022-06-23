@@ -11,14 +11,23 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        review = @current_user.reviews.create!(review_params)
+        review = Review.create!(review_params)
         render json: review, status: :created 
     end
 
     def update
         review = find_review
-        review.update!(review_params)
-        render json: review, status: :created 
+        if review.user === @current_user
+            review.update!(review_params)
+            render json: review, status: :created 
+        else render json: {error: "User is not valid"}
+    end
+    end
+
+    def destroy
+        review = find_review
+        review.destroy
+        head :no_content
     end
 
     private 
