@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     end
 
     def show 
-        post = Post.all 
+        post = find_post
         render json: post
     end 
 
@@ -15,7 +15,17 @@ class PostsController < ApplicationController
         render json: post, status: :created 
     end
 
+    def destroy 
+       post = find_post
+       post.destroy
+       head :no_content
+    end
+
     private 
+
+    def find_post
+        Post.find(params[:id])
+    end
 
     def post_params
         params.permit(:image, :name, :medium, :theme, :description, :price, :user_id)

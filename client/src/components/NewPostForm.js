@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function NewPostForm({ onAddPost, user }) {
-  console.log(user);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -12,8 +11,8 @@ export default function NewPostForm({ onAddPost, user }) {
       body: form,
     });
     let newPost = await response.json();
-    console.log(newPost);
-    onAddPost(form);
+
+    onAddPost(newPost);
   };
 
   return (

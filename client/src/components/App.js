@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Wheel from "./Wheel";
 import PersonalPage from "./PersonalPage";
 import HomePage from "./HomePage";
+import Project from "./Project";
 import Login from "./Login";
 import Signup from "./Signup";
 import Navigation from "./Navigation";
@@ -43,8 +44,12 @@ function App() {
         <Route exact path="/projects">
           <Wheel />
         </Route>
+        <Route exact path="/projects/:id">
+          <Project />
+        </Route>
+
         <Route exact path="/me">
-          <PersonalPage user={user} />
+          {!user ? "loading" : <PersonalPage user={user} />}
         </Route>
       </Switch>
     </div>

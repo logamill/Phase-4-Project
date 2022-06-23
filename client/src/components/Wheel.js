@@ -54,14 +54,15 @@ export default class Wheel extends Component {
           {
             this.state.posts.map((post) => {
               return (
-                <Card
-                  pic={post.image}
-                  radius={this.state.radius}
-                  theta={(Math.PI / 25.0) * post.id}
-                  center={this.state.center_of_wheel}
-                  key={`card_${post.id}`}
-                  id={post.id}
-              />
+                  <Card
+                    post={post}
+                    pic={post.image}
+                    radius={this.state.radius}g
+                    theta={(Math.PI / 25.0) * post.id}
+                    center={this.state.center_of_wheel}
+                    key={`card_${post.id}`}
+                    id={post.id}
+                  />
             )})
           }
         </div>

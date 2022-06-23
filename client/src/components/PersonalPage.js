@@ -1,43 +1,56 @@
 import { useEffect, useState } from "react";
 import NewPostForm from "./NewPostForm";
 import { useHistory } from "react-router-dom";
+import UsersProjects from "./UsersProjects";
+import EachPost from "./EachPost";
 
 export default function PersonalPage({ user }) {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(user.posts);
+  const [modal, setModal] = useState(false);
+  console.log(modal);
   console.log(user);
+  const mapPosts = posts.map((el) => {
+    return (
+      <EachPost key={el.id} post={el} handleDeletePost={handleDeletePost} />
+    );
+  });
 
-  function handleAddPost(newPost) {
+  const handleAddPost = (newPost) => {
     setPosts((posts) => [...posts, newPost]);
+  };
+
+  function handleDeletePost(id) {
+    fetch(`/posts/${id}`, {
+      method: "DELETE",
+    }).then((r) => {
+      if (r.ok) {
+        setPosts((posts) => posts.filter((post) => post.id !== id));
+      }
+    });
   }
 
-  // function handleClick() {
-  //   history.push("/new");
-  // }
+  const handleClick = () => {
+    setModal(!modal);
+    console.log(modal);
+  };
+
+  if (!user) return "loading";
 
   return (
-    <div className="personal-page">
-      <div className="personal-info">
-        <h2 className="user-name">Some Cool Name</h2>
-        <h3 className="add-btn">Add new +</h3>
-      </div>
+    <>
       <div>
-        <img className="each-project" src="http://picsum.photos/1"></img>
-        <div className="project-info">
-          <div className="row">
-            <h5>Name: </h5>
-            <h5>Medium: </h5>
+        <div className="personal-page">
+          <div className="personal-info">
+            <h2 className="user-name">{user.name}</h2>
+            <btn className="add-btn" onClick={handleClick}>
+              Add new +
+            </btn>
           </div>
-          <div className="row">
-            <h5>Theme: </h5>
-            <h5>Price: </h5>
-          </div>
-        </div>
-        <div className="row">
-          <h5>Description: </h5>
+          <div>{!posts ? "loading" : mapPosts}</div>
         </div>
       </div>
 
-      <NewPostForm onAddPost={handleAddPost} user={user} />
-    </div>
+      {modal ? <NewPostForm onAddPost={handleAddPost} user={user} /> : null}
+    </>
   );
 }

@@ -7,6 +7,17 @@ export default function Login({ onLogin }) {
   const handleLogin = async (e) => {
     e.preventDefault();
     let form = new FormData(document.querySelector(`#signup-form`));
+
+    // try {
+    //   let response = await fetch(`/login`, {
+    //     method: `POST`,
+    //     body: form,
+    //   });
+    //   let user = await response.json();
+    // } catch (err) {
+    //   console.log(err);
+    // }
+
     let response = await fetch(`/login`, {
       method: `POST`,
       body: form,

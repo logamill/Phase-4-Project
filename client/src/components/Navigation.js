@@ -23,13 +23,13 @@ export default function Navigation({ user, setUser }) {
         <nav class="navigation__nav">
           <ul class="navigation__list">
             <li class="navigation__item">
-              <a href="#" class="navigation__link">
+              <a href="/projects" class="navigation__link">
                 All projects.
               </a>
             </li>
 
             <li class="navigation__item">
-              <a href="#" class="navigation__link">
+              <a href="/me" class="navigation__link">
                 My projects.
               </a>
             </li>

@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   post "/signup", to: "users#create"
   delete "/logout", to: "sessions#destroy"  
   get "/me", to: "users#show"
+  get "/projects/:id", to: "posts#show"
 end

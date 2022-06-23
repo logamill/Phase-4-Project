@@ -250,38 +250,58 @@ body {
   left: 50%;
   transform: translate(-50%, -50%); }
 
-.personal-page {
-  height: 90vh;
-  display: flex;
-  justify-content: space-between; }
-
 .each-project {
-  width: 66rem;
-  height: 40rem; }
+  width: inherit; }
 
 .project-info {
-  display: flex;
-  justify-content: space-evenly; }
+  margin-left: 25vw;
+  width: 70vw;
+  height: 100%; }
+
+.key-name {
+  font-size: 1.6rem; }
+
+.values {
+  font-size: 1.6rem;
+  font-weight: 500; }
+
+.description {
+  overflow-wrap: break-word;
+  hyphens: auto;
+  font-size: 1.6rem;
+  font-weight: 500; }
 
 .row {
+  display: inline-block;
   width: 50%;
-  text-align: left;
-  font-size: 1.6rem; }
+  text-align: left; }
 
 .user-name {
   font-size: 4rem;
   font-weight: 600; }
 
 .personal-info {
-  position: relative; }
+  height: 100%;
+  width: 25vw;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 3rem;
+  padding-left: 3rem; }
 
 .add-btn {
   position: absolute;
-  bottom: 0;
+  bottom: 1rem;
   display: inline-block;
   font-size: 3rem;
   font-weight: 500;
   border-bottom: 1.5px solid #000; }
+
+.delete-btn {
+  margin-top: 1.2rem;
+  margin-bottom: 3rem; }
 
 .home-page {
   position: relative;
