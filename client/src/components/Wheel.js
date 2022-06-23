@@ -42,9 +42,7 @@ export default class Wheel extends Component {
   };
 
   render() {
- 
-    console.log(this.state.posts)
-    return (
+     return (
       <>
         <div
           onWheel={this.handleScroll}
