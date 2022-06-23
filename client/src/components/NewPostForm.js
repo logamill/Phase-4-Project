@@ -16,7 +16,7 @@ export default function NewPostForm({ onAddPost, user }) {
   };
 
   return (
-    <div className="login">
+    <div className="login modal-container">
       <form className="form" id="new-post-form" onSubmit={handleSubmit}>
         <div className="form__group">
           <input

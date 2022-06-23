@@ -29,7 +29,8 @@ export default function PersonalPage({ user }) {
     });
   }
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault(e);
     setModal(!modal);
     console.log(modal);
   };

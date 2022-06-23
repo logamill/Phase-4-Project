@@ -1,5 +1,4 @@
 import React from "react";
-import { Paper } from "@material-ui/core";
 
 export default function EachPost({ post, handleDeletePost }) {
   const { id, description, image, medium, name, price, theme } = post;
