@@ -4,6 +4,11 @@
     align-items: center;
 }
 
+.name-container {
+    font-size: 6rem;
+    border-bottom: 1px solid black;
+}
+
 .this-project-info {
     flex-direction: column;
     justify-content: flex-start;
@@ -20,16 +25,6 @@
     font-size: 1.4rem;
 }
 
-.reviews-header{
-    position: relative;
-    bottom: 0;
-    display: inline-block;
-    font-size: 3rem;
-    font-weight: 500;
-    border-bottom: 1.5px solid;
-    margin-bottom: 2rem;
-}
-
 .image-div {
     width: 50vw;
     height: 50vh;
@@ -38,10 +33,6 @@
 .project-image {
     height: 50vh;
     margin-right: 2rem;
-}
-
-.review-container {
-    padding: 1rem;
 }
 
 .add-review {
@@ -59,19 +50,20 @@
       }
 }
 
+.add-review-container {
+    font-size: 2rem;
+}
+
+.add-review-btn {
+    display: flex;
+    border: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: larger;
+    margin-left: 10px;
+}
+
 .project-sep {
     display: inline-block;
     width: 48%;
 }
-
-.edit-delete {
-    display: inline-block;
-    margin-left: 2rem;
-    border-bottom: 1px solid;
-
-    &:hover {
-        transform: scale(1.2);
-    }
-}
-
-

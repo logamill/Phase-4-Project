@@ -2,16 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Review from "./Review";
 import "../sass/project.scss";
-
 export default function Project(user) {
   const [projectData, setProjectData] = useState([]);
   const [allReviews, setAllReviews] = useState([]);
   const [reviewShow, setReviewShow] = useState(false);
   const { id } = useParams();
-
   const { name, medium, image, theme, description, price, reviews } =
     projectData;
-
   function getProjectInfoFetch() {
     fetch(`/projects/${id}`)
       .then((res) => {
@@ -28,11 +25,9 @@ export default function Project(user) {
         console.log(error);
       });
   }
-
   useEffect(() => {
     getProjectInfoFetch();
   }, []);
-
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     let configObj = {
@@ -40,8 +35,6 @@ export default function Project(user) {
       user_id: user.user.id,
       post_id: +id,
     };
-    console.log(configObj);
-
     let response = await fetch(`/review`, {
       method: `POST`,
       headers: {
@@ -58,24 +51,16 @@ export default function Project(user) {
       console.log(await response.json());
     }
   };
-
-  function handleAddReview() {
+  function handleAddReview(e) {
     setReviewShow((reviewShow) => !reviewShow);
   }
-
-  console.log(`this is user ${user}`);
-
   if (projectData.length < 1) {
-    return (
-      <div className="App">
-        <span class="loader"></span>
-      </div>
-    );
+    return <div className="App">Loading...</div>;
   } else {
     return (
       <div>
         <div className="this-project-info">
-          <h2 className="user-name">{name}</h2>
+          <h2 className="name-container">{name}</h2>
         </div>
         <div className="project-container">
           <div className="image-div">
@@ -120,22 +105,26 @@ export default function Project(user) {
           allReviews={allReviews}
           setAllReviews={setAllReviews}
         />
-        <h4 className="add-review" onClick={handleAddReview}>
-          Add new review +
-        </h4>
         {reviewShow ? (
-          <div>
+          <div className="add-review-container">
             <form id="add-review-form" onSubmit={handleFormSubmit}>
               <p>Enter review: </p>
-              <input
+              <textarea
+                rows="5"
+                cols="50"
                 name="content"
                 type="content"
                 placeholder="What do you think of this piece?"
               />
-              <button type="submit">Add review</button>
+              <button className="add-review-btn" type="submit">
+                +
+              </button>
             </form>
           </div>
         ) : null}
+        <h4 className="add-review" onClick={handleAddReview}>
+          Add new review +
+        </h4>
       </div>
     );
   }
