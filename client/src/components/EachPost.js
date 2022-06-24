@@ -3,7 +3,7 @@ import React from "react";
 export default function EachPost({ post, handleDeletePost }) {
   const { id, description, image, medium, name, price, theme } = post;
 
-  const handleDelete = () => {};
+  // const handleDelete = () => {};
 
   return (
     <div className="project-info">
