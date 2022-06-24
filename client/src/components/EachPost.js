@@ -22,7 +22,7 @@ export default function EachPost({ post, handleDeletePost }) {
         </h5>
 
         <h5 className="key-name">
-          Price: <span className="values">{price}</span>
+          Price: <span className="values">${price}</span>
         </h5>
       </div>
 
