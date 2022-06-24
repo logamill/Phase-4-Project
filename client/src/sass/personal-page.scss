@@ -88,14 +88,13 @@
     left: 50%;
     height: 90%;
     transform: translate(-50%, -50%) scale(0.75);
-    width: 85%;
+    width: 60%;
     background-color: $color-white;
     box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
     border-radius: 3px;
     display: table;
     overflow: hidden;
     opacity: 1;
-    transition: all 0.5s 0.2s;
   }
 }
 .popup__close {
@@ -197,4 +196,7 @@
   100% {
     transform: rotate(-360deg);
   }
+}
+#new-post-form {
+  box-shadow: none;
 }
