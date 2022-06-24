@@ -19,14 +19,20 @@ export default class Wheel extends Component {
   }
 
   componentDidMount() {
-    fetch('/posts')
-    .then(res => res.json())
-    .then(data => this.setState({posts: data}))
+    // setTimeout(() => {
+    //   this.setState({ timeout: !this.timeout });
+    // }, 5000);
 
-    this.setState ({ center_of_wheel: {
-      x: parseFloat(this.wheel.style.width) / 2.0,
-      y: parseFloat(this.wheel.style.height) / 2.0,
-  }})
+    fetch("/posts")
+      .then((res) => res.json())
+      .then((data) => this.setState({ posts: data }));
+
+    this.setState({
+      center_of_wheel: {
+        x: parseFloat(this.wheel.style.width) / 2.0,
+        y: parseFloat(this.wheel.style.height) / 2.0,
+      },
+    });
   }
 
   handleScroll = (event) => {
@@ -42,27 +48,28 @@ export default class Wheel extends Component {
   };
 
   render() {
-     return (
+    // clearTimeout(this.timeout);
+    return (
       <>
         <div
           onWheel={this.handleScroll}
           ref={(ref_id) => (this.wheel = ref_id)}
           style={styles.wheel}
         >
-          {
-            this.state.posts.map((post) => {
-              return (
-                  <Card
-                    post={post}
-                    pic={post.image}
-                    radius={this.state.radius}g
-                    theta={(Math.PI / 25.0) * post.id}
-                    center={this.state.center_of_wheel}
-                    key={`card_${post.id}`}
-                    id={post.id}
-                  />
-            )})
-          }
+          {this.state.posts.map((post) => {
+            return (
+              <Card
+                post={post}
+                pic={post.image}
+                radius={this.state.radius}
+                g
+                theta={(Math.PI / 25.0) * post.id}
+                center={this.state.center_of_wheel}
+                key={`card_${post.id}`}
+                id={post.id}
+              />
+            );
+          })}
         </div>
         <h2 className="explore">Explore.</h2>
       </>

@@ -6,8 +6,7 @@
 .each-project {
   width: inherit;
 }
-.col {
-}
+
 .project-info {
   margin-left: 25vw;
   width: 70vw;
@@ -57,6 +56,14 @@
   font-size: 3rem;
   font-weight: 500;
   border-bottom: 1.5px solid $color-black;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: $color-black;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform: translateY(-2px);
+  }
 }
 
 .delete-btn {
@@ -71,8 +78,115 @@
   top: 0;
   left: 0;
   background-color: rgba($color-black, 0.8);
-  z-index: 9999;
+  z-index: 2300;
   // opacity: 0;
   // visibility: hidden;
   // transition: all 0.3s;
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 90%;
+    transform: translate(-50%, -50%) scale(0.75);
+    width: 85%;
+    background-color: $color-white;
+    box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+    border-radius: 3px;
+    display: table;
+    overflow: hidden;
+    opacity: 1;
+    transition: all 0.5s 0.2s;
+  }
+}
+.popup__close {
+  &:link,
+  &:visited {
+    color: $color-black;
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    font-size: 3rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+    line-height: 1;
+  }
+}
+// .add-project-btn {
+//   width: 100%;
+// }
+.new-post-form {
+  margin-left: 10rem;
+  display: flex;
+  align-content: space-around;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+// .new-post-input {
+//   width: 100%;
+// }
+#add_new_btn {
+  width: 45rem;
+}
+.modal-title {
+  text-align: center;
+  padding-top: 3rem;
+  font-size: 4rem;
+}
+.loader {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid;
+  border-color: $color-black $color-black transparent transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after,
+.loader::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px solid;
+  border-color: transparent transparent $color-black $color-black;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: rotationBack 0.5s linear infinite;
+  transform-origin: center center;
+}
+.loader::before {
+  width: 54px;
+  height: 54px;
+  border-color: $color-black $color-black transparent transparent;
+  animation: rotation 1.5s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
 }

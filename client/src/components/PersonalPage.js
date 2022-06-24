@@ -7,8 +7,7 @@ import EachPost from "./EachPost";
 export default function PersonalPage({ user }) {
   const [posts, setPosts] = useState(user.posts);
   const [modal, setModal] = useState(false);
-  console.log(modal);
-  console.log(user);
+
   const mapPosts = posts.map((el) => {
     return (
       <EachPost key={el.id} post={el} handleDeletePost={handleDeletePost} />
@@ -16,7 +15,13 @@ export default function PersonalPage({ user }) {
   });
 
   const handleAddPost = (newPost) => {
+    setModal(!modal);
     setPosts((posts) => [...posts, newPost]);
+  };
+
+  const handleCloseModal = (e) => {
+    e.preventDefault(e);
+    setModal(!modal);
   };
 
   function handleDeletePost(id) {
@@ -32,26 +37,31 @@ export default function PersonalPage({ user }) {
   const handleClick = (e) => {
     e.preventDefault(e);
     setModal(!modal);
-    console.log(modal);
   };
 
-  if (!user) return "loading";
+  if (!user) return <span class="loader"></span>;
 
   return (
     <>
       <div>
         <div className="personal-page">
           <div className="personal-info">
-            <h2 className="user-name">{user.name}</h2>
+            <h2 className="user-name">{user.name}.</h2>
             <btn className="add-btn" onClick={handleClick}>
               Add new +
             </btn>
           </div>
-          <div>{!posts ? "loading" : mapPosts}</div>
+          <div>{!posts ? <span class="loader"></span> : mapPosts}</div>
         </div>
       </div>
 
-      {modal ? <NewPostForm onAddPost={handleAddPost} user={user} /> : null}
+      {modal ? (
+        <NewPostForm
+          onAddPost={handleAddPost}
+          user={user}
+          handleCloseModal={handleCloseModal}
+        />
+      ) : null}
     </>
   );
 }

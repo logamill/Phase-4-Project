@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory} from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 function get_my_coords(theta, radius) {
   return {
@@ -20,7 +20,7 @@ export default function Card(props) {
   //   console.log(e.target);
   // };
   function handleMouseClick(e) {
-    history.push(`/projects/${props.id}`)
+    history.push(`/projects/${props.id}`);
   }
 
   return (
@@ -43,21 +43,3 @@ export default function Card(props) {
     </div>
   );
 }
-
-// const styles = {
-//   card: {
-//     position: "absolute",
-//     top: "50%",
-//     left: "50%",
-//     // transform: "translate(-50%, -50%)  rotate3d(0, 1, 0, 65deg)",
-//     transformStyle: "preserve-3d",
-
-//     height: "100px",
-//     width: "100px",
-//     cursor: "pointer",
-//   },
-//   image: {
-//     height: "100px",
-//     width: "100px",
-//   },
-// };

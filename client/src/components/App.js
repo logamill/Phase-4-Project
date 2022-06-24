@@ -13,8 +13,14 @@ import { Route, Link, Switch, useHistory } from "react-router-dom";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(!loading);
+  }, 5000);
+
+  useEffect(() => {
+    setLoading(!loading);
     fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
@@ -26,33 +32,45 @@ function App() {
     setUser(userInfo);
   };
 
+  console.log(loading);
+
   return (
-    <div className="App">
-      <CustomCursor />
-      {user ? <Navigation setUser={setUser} user={user} /> : null}
+    <>
+      {loading ? (
+        <span class="loader"></span>
+      ) : (
+        <div className="App">
+          <CustomCursor />
+          {user ? <Navigation setUser={setUser} user={user} /> : null}
 
-      <Switch>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
-        <Route exact path="/login">
-          <Login onLogin={onLogin} />
-        </Route>
-        <Route exact path="/signup">
-          <Signup onLogin={onLogin} />
-        </Route>
-        <Route exact path="/projects">
-          <Wheel />
-        </Route>
-        <Route exact path="/projects/:id">
-          <Project user={user}/>
-        </Route>
+          <Switch>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
+            <Route exact path="/login">
+              <Login onLogin={onLogin} />
+            </Route>
+            <Route exact path="/signup">
+              <Signup onLogin={onLogin} />
+            </Route>
+            <Route exact path="/projects">
+              <Wheel />
+            </Route>
+            <Route exact path="/projects/:id">
+              <Project user={user} />
+            </Route>
 
-        <Route exact path="/me">
-          {!user ? "loading" : <PersonalPage user={user} />}
-        </Route>
-      </Switch>
-    </div>
+            <Route exact path="/me">
+              {!user ? (
+                <span class="loader"></span>
+              ) : (
+                <PersonalPage user={user} />
+              )}
+            </Route>
+          </Switch>
+        </div>
+      )}
+    </>
   );
 }
 

@@ -28,10 +28,8 @@ body {
   position: absolute;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  z-index: 150;
-  transition: all .1s linear;
-  
-
+  z-index: 2500;
+  transition: all 0.1s linear;
 }
 
 .main-cursor {
