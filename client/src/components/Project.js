@@ -52,7 +52,6 @@ export default function Project(user) {
     }
   };
   function handleAddReview(e) {
-    e.preventDefault();
     setReviewShow((reviewShow) => !reviewShow);
   }
   if (projectData.length < 1) {

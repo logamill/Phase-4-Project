@@ -35,6 +35,7 @@ export default function Login({ onLogin }) {
   return (
     <div className="login">
       <form className="form" id="signup-form" onSubmit={handleLogin}>
+        <h2 className="modal-title">Welcome back.</h2>
         <div className="form__group">
           <input
             type="text"
