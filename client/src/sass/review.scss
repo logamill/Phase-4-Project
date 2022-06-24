@@ -1,0 +1,76 @@
+.reviews-header{
+    position: relative;
+    bottom: 0;
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 3rem;
+    font-weight: 500;
+    border-bottom: 1.5px solid;
+    margin-bottom: 2rem;
+}
+
+.user-avatar {
+    display: flex;
+
+    img {
+        border-radius: 150px;
+        height: 35px;
+        width: 35px;
+    }
+    h2 {
+        display: flex;
+        font-size: 2rem;
+        margin-left: 1rem;
+        align-items: center;
+    }
+}
+
+.edit-delete {
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-left: 2rem;
+    border-bottom: 1px solid;
+
+    &:hover {
+        transform: scale(1.2);
+    }
+}
+
+.edit-submit {
+    display: flex;
+    size: 2rem;
+    font-size: large;
+    color: black;
+}
+
+.review-container {
+    padding: 1rem;
+}
+
+.review-content-row {
+    display: flex;
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-left: 6rem;
+}
+
+
+.review-content-forrm {
+    margin: 50px;
+    padding: 5px;
+    display: inline-block;
+  
+    input {
+        border: none;
+        background: transparent;
+        border-bottom: 1px solid #fff;
+        outline: none;
+    
+    }
+
+    form button {
+        background: transparent;
+        border: 0;
+        color: #fff;
+    }
+}

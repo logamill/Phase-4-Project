@@ -56,11 +56,10 @@ export default function Project( user ) {
         }
       };
 
+
     function handleAddReview() {
         setReviewShow((reviewShow) => !reviewShow)
     }
-
-    console.log(`this is user ${user}`)
 
     if(projectData.length < 1) {
         return (
@@ -70,7 +69,7 @@ export default function Project( user ) {
     return (
         <div >
         <div className="this-project-info">
-            <h2 className="user-name">{name}</h2>
+            <h2 className="name-container">{name}</h2>
         </div>
         <div className="project-container">
             <div className="image-div">
@@ -96,13 +95,14 @@ export default function Project( user ) {
             </div>
         </div>
             <Review user={user} allReviews={allReviews} setAllReviews={setAllReviews} />
-            <h4 className="add-review" onClick={handleAddReview}>Add new review +</h4>
                 {
                     reviewShow ? 
-                    <div>
+                    <div className="add-review-container">
                         <form id="add-review-form" onSubmit={handleFormSubmit}>
                             <p>Enter review: </p>
-                            <input
+                            <textarea
+                                rows="5"
+                                cols="50"
                                 name="content"
                                 type="content"
                                 placeholder="What do you think of this piece?"
@@ -113,6 +113,7 @@ export default function Project( user ) {
                     : 
                     null
                 }
+                <h4 className="add-review" onClick={handleAddReview}>Add new review +</h4>
         </div>
   );
 }}
