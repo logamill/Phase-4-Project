@@ -23,7 +23,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    setLoading(!loading);
     fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
@@ -34,8 +33,6 @@ function App() {
   const onLogin = (userInfo) => {
     setUser(userInfo);
   };
-
-  console.log(loading);
 
   return (
     <>
