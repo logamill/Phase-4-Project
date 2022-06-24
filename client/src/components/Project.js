@@ -38,7 +38,6 @@ export default function Project( user ) {
             user_id: user.user.id,
             post_id: +id
         };
-        console.log(configObj)
 
         let response = await fetch(`/review`, {
           method: `POST`,
@@ -107,7 +106,7 @@ export default function Project( user ) {
                                 type="content"
                                 placeholder="What do you think of this piece?"
                                 />
-                            <button type="submit">Add review</button>
+                            <button className="add-review-btn" type="submit">+</button>
                         </form>
                     </div>
                     : 

@@ -5,6 +5,7 @@ import '../sass/review.scss';
 function Review( props ) {
     const [reviewEdit, setReviewEdit] = useState('')
     const [editing, setEditing] = useState(false)
+    const [individualReview, setIndividualReview] = useState()
 
     const { user } = props
 
@@ -20,6 +21,7 @@ function Review( props ) {
     function handleUpdateSubmit(review) {
         setEditing(!editing)
         setReviewEdit(review.content)
+        setIndividualReview(review.id)
     }
 
     // state to hold edited text
@@ -32,9 +34,6 @@ function Review( props ) {
         e.preventDefault();
         let form = new FormData(document.querySelector(`#review-content-form`));
         let newContent = e.target.content.value;
-        console.log(`id is ${id}`)
-        console.log(form)
-        console.log(newContent)
 
         let response = await fetch(`/reviews/${id}`, {
             method: `PATCH`,
@@ -44,11 +43,13 @@ function Review( props ) {
           if (response.ok) {
             let contentResponse = await response.json();
             let updatedReviews = props.allReviews.filter((review) => 
-                    review.id === id ? review.content = newContent : false
+                    review.id !== id ? true : false
                 )
+            console.log(updatedReviews)
             setReviewEdit(contentResponse.content)
-            props.setAllReviews(updatedReviews)
+            props.setAllReviews([...updatedReviews, contentResponse])
             setEditing(!editing)
+            console.log(`allReview ${props.allReviews}`)
           } else {
             response.json().then((err) => console.log(err.errors));
           }
@@ -67,7 +68,7 @@ function Review( props ) {
                             <img className="avatar" src={review.image_url}></img>
                             <h2 className='review-name'>{review.name}: </h2>
                         </div>
-                        { editing ? 
+                        { editing  && user.user.id === review.user_id && review.id === individualReview ? 
                         <form id='review-content-form' onSubmit={(e) => handleEditPatch(e, review.id)}>
                             <textarea
                                 name="content"
