@@ -19,7 +19,6 @@ function Review( props ) {
     // function to handle review edit 
     function handleUpdateSubmit(review) {
         setEditing(!editing)
-        console.log(editing)
         setReviewEdit(review.content)
     }
 
@@ -54,7 +53,7 @@ function Review( props ) {
             response.json().then((err) => console.log(err.errors));
           }
         };
-    
+
 
     return (
         
@@ -65,7 +64,7 @@ function Review( props ) {
                 return (
                     <div key={review.id} className="review-container">
                         <div className='user-avatar'>
-                            <img className="avatar" src={props.user.user.image_url}></img>
+                            <img className="avatar" src={review.image_url}></img>
                             <h2 className='review-name'>{review.name}: </h2>
                         </div>
                         { editing ? 

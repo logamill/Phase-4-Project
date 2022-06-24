@@ -6,4 +6,8 @@ class Review < ApplicationRecord
     def name 
         user.name
     end
+
+    def image_url 
+        user.image_url
+    end
 end

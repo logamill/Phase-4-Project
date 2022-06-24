@@ -22,6 +22,8 @@
     transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: 150;
-    transition: all .1s linear;
+
+    // mix-blend-mode: difference;
+    // transition: all ease-in;
 
 }
