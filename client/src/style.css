@@ -239,7 +239,11 @@ body {
 
 .image {
   height: 6rem;
-  width: 9rem; }
+  width: 9rem;
+  opacity: 70%; }
+  .image:hover {
+    transform: scale(1.3);
+    opacity: 100%; }
 
 .explore {
   font-size: 6rem;
